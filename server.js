@@ -95,7 +95,7 @@ app.get("/biglietti/:id", (req, res) => {
 
 app.put("/biglietto/:id", (req, res) => {
     const id = req.params.id;
-    let uscita = Math.floor(Math.random() * 300000) + 500;;
+    let uscita = Math.floor(Math.random() * 300000) + 500;
 
     db.serialize(() => {
         // db.get(`SELECT * FROM biglietto
@@ -146,7 +146,7 @@ app.get("/pagamento/:id", (req, res) => {
 
         let msEntrata = rows.entrata;
         let msUscita = rows.uscita;
-        let costo = ((msUscita - msEntrata) / 60000) * 0.01;
+        let costo = (((msUscita - msEntrata) / 60000) * 0.01).toFixed(2);
 
         let response = {
             code: 1,
